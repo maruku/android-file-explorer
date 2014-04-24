@@ -211,7 +211,7 @@ public class FileListActivity extends BaseFileListActivity {
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 		
-		mSpinnerAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_dropdown_item, gotoLocations);
+		mSpinnerAdapter = new ArrayAdapter<CharSequence>(this, R.layout.sherlock_spinner_dropdown_item, gotoLocations);
 		actionBar.setListNavigationCallbacks(mSpinnerAdapter, getActionbarListener(actionBar));
 		
 	}
