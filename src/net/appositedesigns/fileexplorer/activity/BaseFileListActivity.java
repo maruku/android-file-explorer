@@ -1,5 +1,7 @@
 package net.appositedesigns.fileexplorer.activity;
 
+import com.actionbarsherlock.app.SherlockListActivity;
+
 import net.appositedesigns.fileexplorer.util.BookmarksHelper;
 import net.appositedesigns.fileexplorer.util.PreferenceHelper;
 import android.app.ListActivity;
@@ -8,7 +10,7 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
-public abstract class BaseFileListActivity extends ListActivity {
+public abstract class BaseFileListActivity extends SherlockListActivity {
 
 	protected PreferenceHelper prefs;
 	protected BookmarksHelper bookmarker;

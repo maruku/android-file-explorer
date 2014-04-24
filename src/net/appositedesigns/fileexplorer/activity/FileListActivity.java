@@ -1,7 +1,5 @@
 package net.appositedesigns.fileexplorer.activity;
 
-import android.app.ActionBar;
-import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -11,9 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
@@ -23,7 +18,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import net.appositedesigns.fileexplorer.FileExplorerApp;
 import net.appositedesigns.fileexplorer.R;
 import net.appositedesigns.fileexplorer.adapters.FileListAdapter;
@@ -37,6 +31,12 @@ import net.appositedesigns.fileexplorer.workers.FileMover;
 import net.appositedesigns.fileexplorer.workers.Finder;
 
 import org.apache.commons.io.FileUtils;
+
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.ActionBar.OnNavigationListener;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -206,7 +206,7 @@ public class FileListActivity extends BaseFileListActivity {
 	}
 
 	private void prepareActionBar() {
-		final ActionBar actionBar = getActionBar();
+		final ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
@@ -407,7 +407,7 @@ public class FileListActivity extends BaseFileListActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
+		MenuInflater inflater = getSupportMenuInflater();
 		
 		if(isPicker)
 		{
@@ -607,7 +607,7 @@ public class FileListActivity extends BaseFileListActivity {
 		files.clear();
 		files.addAll(children);
 		adapter.notifyDataSetChanged();
-		getActionBar().setSelectedNavigationItem(0);
+		getSupportActionBar().setSelectedNavigationItem(0);
 		
 		if(Util.isRoot(currentDir))
 		{
@@ -630,7 +630,7 @@ public class FileListActivity extends BaseFileListActivity {
 		}
 		mSpinnerAdapter.notifyDataSetChanged();
 		
-		ActionBar ab = getActionBar();
+		ActionBar ab = getSupportActionBar();
 		ab.setSelectedNavigationItem(0);
 		
 		ab.setSubtitle(getString(R.string.item_count_subtitle, children.size()));				

@@ -5,6 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
 import net.appositedesigns.fileexplorer.FileExplorerApp;
 import net.appositedesigns.fileexplorer.R;
 import net.appositedesigns.fileexplorer.adapters.BookmarkListAdapter;
@@ -19,9 +23,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -43,7 +44,7 @@ public class BookmarkListActivity extends BaseFileListActivity {
 
 		setTheme(new PreferenceHelper(this).getTheme());
 		super.onCreate(savedInstanceState);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.main);
 		isPicker = getIntent().getBooleanExtra(FileExplorerApp.EXTRA_IS_PICKER, false);
 		bookmarks = new ArrayList<FileListEntry>();
@@ -106,7 +107,7 @@ public class BookmarkListActivity extends BaseFileListActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		if(!isPicker)
 		{
-			MenuInflater inflater = getMenuInflater();
+			MenuInflater inflater = getSupportMenuInflater();
 			inflater.inflate(R.menu.bookmarks_options_menu, menu);
 			return true;
 		}

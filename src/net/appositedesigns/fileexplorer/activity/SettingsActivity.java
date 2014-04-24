@@ -4,24 +4,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
-import android.view.MenuItem;
-
 import net.appositedesigns.fileexplorer.R;
 import net.appositedesigns.fileexplorer.util.FileActionsHelper;
 import net.appositedesigns.fileexplorer.util.PreferenceHelper;
 
 import java.util.List;
 
-public class SettingsActivity extends PreferenceActivity {
+import com.actionbarsherlock.app.SherlockPreferenceActivity;
+import com.actionbarsherlock.view.MenuItem;
+
+public class SettingsActivity extends SherlockPreferenceActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
 		setTheme(new PreferenceHelper(this).getTheme());
 		super.onCreate(savedInstanceState);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 	}
 	

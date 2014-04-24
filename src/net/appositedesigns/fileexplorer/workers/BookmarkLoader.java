@@ -43,11 +43,11 @@ public class BookmarkLoader extends AsyncTask<File, Integer, List<FileListEntry>
 				caller.setBookmarks(childFiles);
 				if(childFiles.size()>0)
 				{
-					caller.getActionBar().setSubtitle(caller.getString(R.string.bookmarks_count, childFiles.size()));
+					caller.getSupportActionBar().setSubtitle(caller.getString(R.string.bookmarks_count, childFiles.size()));
 				}
 				else
 				{
-					caller.getActionBar().setSubtitle(caller.getString(R.string.bookmarks_count_0));
+					caller.getSupportActionBar().setSubtitle(caller.getString(R.string.bookmarks_count_0));
 				}
 			}
 		});
