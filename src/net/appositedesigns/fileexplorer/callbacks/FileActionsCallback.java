@@ -1,15 +1,16 @@
 package net.appositedesigns.fileexplorer.callbacks;
 
+import com.actionbarsherlock.view.ActionMode;
+import com.actionbarsherlock.view.ActionMode.Callback;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.ShareActionProvider;
+import com.actionbarsherlock.widget.ShareActionProvider.OnShareTargetSelectedListener;
+
 import android.content.Intent;
 import android.net.Uri;
-import android.view.ActionMode;
-import android.view.ActionMode.Callback;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.webkit.MimeTypeMap;
-import android.widget.ShareActionProvider;
-import android.widget.ShareActionProvider.OnShareTargetSelectedListener;
 
 import net.appositedesigns.fileexplorer.R;
 import net.appositedesigns.fileexplorer.activity.FileListActivity;
@@ -62,7 +63,7 @@ public abstract class FileActionsCallback implements Callback {
 		actionMode.setTitle(activity.getString(R.string.selected_,
 				file.getName()));
 
-		MenuInflater inflater = activity.getMenuInflater();
+		MenuInflater inflater = activity.getSupportMenuInflater();
 		
 		inflater.inflate(R.menu.context_menu, menu);
 		
