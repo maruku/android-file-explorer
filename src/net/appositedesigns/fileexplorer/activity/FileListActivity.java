@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -236,7 +237,8 @@ public class FileListActivity extends BaseFileListActivity {
 					
 					
 				case 2:
-					listContents(new File("/sdcard"));
+					String extStorageDir = Environment.getExternalStorageDirectory().getPath();
+					listContents(new File(extStorageDir));
 					break;
 					
 				case 3:

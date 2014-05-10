@@ -32,19 +32,10 @@
         android:layout_above="@id/explorer_resMeta"
         android:layout_alignWithParentIfMissing="true"
         android:singleLine="true"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:paddingLeft="5dp"
         android:includeFontPadding="true"
         android:gravity="center_vertical"
         android:ellipsize="marquee"/>
-
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/overflow_button"
-            android:src="@android:drawable/ic_menu_more"
-            android:layout_centerVertical="true"
-            android:layout_alignRight="@+id/explorer_resMeta"
-            android:layout_marginRight="8dp"/>
 
 </RelativeLayout>

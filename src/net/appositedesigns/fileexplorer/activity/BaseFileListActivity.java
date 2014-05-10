@@ -4,7 +4,6 @@ import com.actionbarsherlock.app.SherlockListActivity;
 
 import net.appositedesigns.fileexplorer.util.BookmarksHelper;
 import net.appositedesigns.fileexplorer.util.PreferenceHelper;
-import android.app.ListActivity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;

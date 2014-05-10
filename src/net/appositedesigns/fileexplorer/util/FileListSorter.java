@@ -3,7 +3,6 @@ package net.appositedesigns.fileexplorer.util;
 import java.util.Comparator;
 
 import net.appositedesigns.fileexplorer.activity.BaseFileListActivity;
-import net.appositedesigns.fileexplorer.activity.FileListActivity;
 import net.appositedesigns.fileexplorer.model.FileListEntry;
 import net.appositedesigns.fileexplorer.util.PreferenceHelper.SortField;
 

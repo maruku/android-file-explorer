@@ -457,10 +457,12 @@ public final class Util {
 	}
 
 	public static File getDownloadsFolder() {
-		return new File("/sdcard/"+Environment.DIRECTORY_DOWNLOADS);
+		String extStorageDir = Environment.getExternalStorageDirectory().getPath();
+		return new File(extStorageDir+Environment.DIRECTORY_DOWNLOADS);
 	}
 
 	public static File getDcimFolder() {
-		return new File("/sdcard/"+Environment.DIRECTORY_DCIM);
+		String extStorageDir = Environment.getExternalStorageDirectory().getPath();
+		return new File(extStorageDir+Environment.DIRECTORY_DCIM);
 	}
 }

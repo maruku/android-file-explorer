@@ -1,7 +1,6 @@
 package net.appositedesigns.fileexplorer.activity;
 
 import net.appositedesigns.fileexplorer.R;
-import net.appositedesigns.fileexplorer.R.string;
 import net.appositedesigns.fileexplorer.util.PreferenceHelper;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
