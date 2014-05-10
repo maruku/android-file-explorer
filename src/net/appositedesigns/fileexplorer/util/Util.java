@@ -163,7 +163,8 @@ public final class Util {
 			}
 			else if(Util.isPicture(file))
 			{
-				return mContext.getResources().getDrawable(R.drawable.filetype_image);
+				//return mContext.getResources().getDrawable(R.drawable.filetype_image);
+				return Drawable.createFromPath(file.getAbsolutePath());
 			}
 			else
 			{
