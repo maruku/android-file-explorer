@@ -1,12 +1,17 @@
 package net.appositedesigns.fileexplorer.util;
 
 import android.app.AlertDialog.Builder;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.StatFs;
+import android.provider.MediaStore;
 import android.text.InputType;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -163,8 +168,22 @@ public final class Util {
 			}
 			else if(Util.isPicture(file))
 			{
-				//return mContext.getResources().getDrawable(R.drawable.filetype_image);
-				return Drawable.createFromPath(file.getAbsolutePath());
+				// try to get thumbnail
+				Drawable drawable = null;
+				try {
+					Bitmap bitmap = getThumbnail(mContext.getContentResolver(), file.getAbsolutePath());
+					if(bitmap != null)
+						drawable = new BitmapDrawable(mContext.getResources(), bitmap);
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				if(drawable == null)
+					drawable = mContext.getResources().getDrawable(R.drawable.filetype_image);
+				return drawable;
+				//return Drawable.createFromPath(file.getAbsolutePath());
 			}
 			else
 			{
@@ -174,7 +193,20 @@ public final class Util {
 		
 	}
 
+	public static Bitmap getThumbnail(ContentResolver cr, String path) throws Exception {
 
+	    Cursor ca = cr.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[] { MediaStore.MediaColumns._ID }, MediaStore.MediaColumns.DATA + "=?", new String[] {path}, null);
+	    if (ca != null && ca.moveToFirst()) {
+	        int id = ca.getInt(ca.getColumnIndex(MediaStore.MediaColumns._ID));
+	        ca.close();
+	        return MediaStore.Images.Thumbnails.getThumbnail(cr, id, MediaStore.Images.Thumbnails.MICRO_KIND, null );
+	    }
+
+	    ca.close();
+	    return null;
+
+	}
+	
 	public static boolean delete(File fileToBeDeleted) {
 
 		try
